@@ -1,0 +1,339 @@
+.navbar {
+  width: 200px;
+/*  background-color: #2f749a;*/
+  background-color: #016ab1;
+  color: rgba(255,255,255,0.847059);
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  outline:none;
+  word-break:keep-all;
+  white-space: nowrap;
+  @include transition(width 0.7s ease-in-out);
+  .navbar-head {
+    position: absolute;
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #016ab1;
+    padding-left: 10px;
+    cursor: default;
+    z-index: 10;
+    i{
+      display: inline-block;
+      height: 40px;
+      width: 40px;
+      background: url(./images/logo.svg) no-repeat 0 -102px;
+      margin-top: 5px;
+    }
+    span{
+      display: inline-block;
+      color: #fff;
+     // font-family: -webkit-pictograph;
+      font-size: 20px;
+      font-weight: bold;
+      vertical-align: middle;
+      margin-top: -35px;
+    }
+
+    .navbar-brand {
+      display: block;
+      width: 100%;
+      height: 50px;
+      padding: 0;
+      @include transition(padding-left 0.7s ease-in-out);
+      .navbar-logo {
+        width: 170px;
+        height: 40px;
+        display: block;
+        margin-top: -10px;
+        background-position: 0px -102px;
+        background-repeat: no-repeat;
+        background-image: url(./images/logo.svg);
+      }
+    }
+  }
+
+  .navbar-section {
+    width: 100%;
+    height: calc(100% - 50px);
+    padding-bottom: 20px;
+    margin: 50px 0 0;
+    border: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+    &::-webkit-scrollbar-button    {
+      height: 0;
+    }
+    &::-webkit-scrollbar-track     {
+      background: #ccc;
+    }
+    &::-webkit-scrollbar-track-piece {
+      background: #ccc;
+    }
+    &::-webkit-scrollbar-thumb{
+      background-color: #aaa;
+      border-radius: 8px;
+    }
+  }
+
+  .navbar-title{
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+    font-size: 12px;
+    word-break: keep-all;
+    white-space: nowrap;
+    @include transition(padding-left 0.7s ease-in-out);
+  }
+
+  #accordion {
+    >.panel >div, >.panel >ul {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .panel {
+      background-color: transparent;
+      border: 0;
+      outline: none;
+      margin: 0;
+      border-radius: 0;
+      @include box-shadow(none);
+      >div {
+        a {
+          position: relative;
+          cursor: pointer;
+          display: block;
+          color: #fff;
+          padding: 11px 20px;
+          text-decoration: none;
+          font-size: 12px;
+          .icon{
+            display: inline-block;
+            height: 16px;
+            width: 16px;
+            background: url(./images/new-icon.png) no-repeat -2px -2px;
+            margin: 0 20px -3px 0;
+            &.icon-node{
+              background-position-x: -36px;
+            }
+            &.icon-service{
+              background-position-x: -18px;
+            }
+            &.icon-log{
+              background-position-x: -86px;
+            }
+            &.icon-monitor{
+              background-position-x: -65px;
+            }
+            &.icon-system{
+              background-position-x: -104px;
+            }
+            &.icon-package{
+              background-position-x: -70px;
+            }
+            &.icon-user{
+              background-position-x: -120px;
+            }
+            &.icon-resource{
+              background-position-x: -52px;
+            }
+          }
+          .fa{
+            position: absolute;
+            right: 25px;
+            margin-top: 3px;
+            font-size: 10px;
+            opacity: 1;
+            @include transition(transform 0.4s, opacity 0.3s);
+          }
+        }
+        &.active a {
+          /*background-color: #1d5575;*/
+          background-color: #015e9d;
+          color: rgba(255,255,255,0.847059);
+        }
+        &:hover a {
+          color: $blue-color;
+        }
+        &.active:hover a {
+          color: rgba(255,255,255,0.847059);
+        }
+        &[aria-expanded]:hover a {
+          color: #fff;
+        }
+        &[aria-expanded="true"]  .fa {
+          transform: rotate(-90deg);
+        }
+      }
+      ul {
+        >li {
+          a {
+            position: relative;
+            cursor: pointer;
+            display: block;
+            color: #fff;
+            padding: 11px 20px 11px 46px;
+            text-decoration: none;
+            font-size: 12px;
+            span:before{
+              content: '';
+              display: inline-block;
+              margin-right: 8px;
+              width: 6px;
+              height: 6px;
+              border-radius: 50%;
+              background-color: #fff;
+              border: 1px solid #fff;
+            }
+          }
+          &.active > a {
+           /* background-color: #1d5575;*/
+            background-color: #015e9d;
+            color: rgba(255,255,255,0.847059);
+          }
+          &:hover > a {
+            color: $blue-color;
+          }
+          &.active:hover > a {
+            color: rgba(255,255,255,0.847059);
+          }
+        }
+      }
+      .panel {
+        >div {
+          &[aria-expanded="true"]  .fa {
+            transform: rotate(-45deg);
+          }
+          a {
+            padding-left: 46px;
+            span:before{
+              content: '';
+              display: inline-block;
+              margin-right: 8px;
+              width: 6px;
+              height: 6px;
+              border-radius: 50%;
+              background-color: #fff;
+              border: 1px solid #fff;
+            }
+          }
+        }
+        ul > li >a {
+          padding-left: 58px;
+          span:before{
+            width: 4px;
+            height: 4px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.navbar.narrow{
+  width: 55px;
+  .navbar-brand {
+    padding-left: 12px;
+  }
+  .navbar-title{
+    padding-left: 10px;
+  }
+  #accordion {
+    >.panel >div {
+      a .fa {
+        opacity: 0;
+      }
+      &.active a {
+        background-color: $bg-first!important;
+      }
+      &[aria-expanded="true"] {
+        background-color: $bg-first;
+      }
+    }
+    .panel {
+      ul {
+        position: absolute;
+        display: none;
+        overflow: initial;
+        margin-left: 5px;
+        height: initial!important;
+        left: 100%;
+        top: auto;
+        margin-top: -40px;
+        border: 1px solid rgba(0,0,0,0.15);
+        border-radius: 4px;
+        background-color: #fff;
+        &:before{
+          content: '';
+          position: absolute;
+          top: 10px;
+          left: -16px;
+          width: 0;
+          height: 0;
+          border: 10px solid transparent;
+          border-right-color: #fff;
+        }
+        li {
+          a {
+            padding-left: 20px;
+            color: #3f4a56;
+            span:before {
+              background-color: #3f4a56;
+            }
+          }
+          &:hover >a {
+            color: $blue-color;
+          }
+          &.active >a {
+            background-color: transparent;
+            color: $blue-color;
+          }
+        }
+      }
+      >div.active a {
+        color: $blue-color!important;
+        background-color: transparent;
+      }
+      &:hover>ul {
+        display: block;
+      }
+      .panel {
+        >div[aria-expanded="true"] .fa{
+          transform: rotate(0);
+        }
+        >div:hover a {
+          color: $blue-color;
+        }
+        >div a {
+          color: #3f4a56;
+          padding-left: 20px;
+          padding-right: 30px;
+          span:before {
+            background-color: #3f4a56;
+          }
+          .fa {
+            right: 10px;
+            &:before {
+              content: "";
+            }
+          }
+        }
+        ul {
+          margin-left: 0px;
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
